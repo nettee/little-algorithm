@@ -1,9 +1,17 @@
 from jinja2 import Environment, PackageLoader, FileSystemLoader
+from typing import List
+
+from index import ArticleInfo
 
 
-def render_readme(index) -> None:
-    items = sorted(index.items(), key=lambda item: item[0])
+def render_readme(articleInfos: List[ArticleInfo]) -> None:
+    items = []
+    for article in articleInfos:
+        for problem in article.problems:
+            items.append((problem.fid, problem, article))
 
+    items.sort(key=lambda item: '{:>6}'.format(item[0]))
+                
     env = Environment(loader=FileSystemLoader('/Users/william/projects/little-algorithm/little/templates'))
     template = env.get_template('README.md')
     rendered = template.render(items=items)
