@@ -1,12 +1,13 @@
-from jinja2 import Environment, PackageLoader, FileSystemLoader
 from typing import List
+
+from jinja2 import Environment, FileSystemLoader
 
 from index import ArticleInfo
 
 
-def render_readme(articleInfos: List[ArticleInfo]) -> None:
+def render_readme(article_infos: List[ArticleInfo]) -> None:
     items = []
-    for article in articleInfos:
+    for article in article_infos:
         for problem in article.problems:
             items.append((problem.fid, problem, article))
 

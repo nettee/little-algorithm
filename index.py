@@ -1,27 +1,34 @@
 #!/usr/bin/env python3
 
-import yaml
 import sys
-from typing import List
 from dataclasses import dataclass
+from typing import List
 
-from little import render
+import yaml
+
+import leetcode.graphql
 import leetcode.problems
+from little import render
 
 
 @dataclass
 class Problem:
     fid: str
+    slug: str
     title: str
+    translated_title: str
     url: str
 
     @classmethod
     def from_fid(cls, fid: str):
         problem = leetcode.problems.query_by_id(fid)
-        if problem is None:
-            print('problem id {} not found'.format(fid))
-            return None
-        return Problem(fid=fid, title=problem.title, url=problem.url)
+        translated_title = leetcode.graphql.query_translated_title_by_slug(problem.slug)
+        # print('translated_title: ', problem.translated_title)
+        return Problem(fid=fid,
+                       slug=problem.slug,
+                       title=problem.title,
+                       translated_title=translated_title,
+                       url=problem.url)
 
 
 @dataclass

@@ -31,6 +31,7 @@ class ProblemStat:
     total_column_articles: int = field(repr=False)
     is_new_question: bool = field(repr=False)
 
+
 @dataclass
 class Problem:
     stat: ProblemStat
@@ -54,6 +55,10 @@ class Problem:
         return self.stat.frontend_question_id
 
     @property
+    def slug(self) -> str:
+        return self.stat.question__title_slug
+
+    @property
     def title(self) -> str:
         return self.stat.question__title
 
@@ -61,9 +66,11 @@ class Problem:
     def url(self) -> str:
         return 'https://leetcode-cn.com/problems/' + self.stat.question__title_slug
 
+
 api = 'https://leetcode-cn.com/api/problems/all/'
 
 problems = None
+
 
 def fetch_problems() -> None:
     global problems
@@ -75,10 +82,7 @@ def fetch_problems() -> None:
         problems[problem.fid] = problem
 
 
-def query_by_id(fid: int) -> Problem:
+def query_by_id(fid: str) -> Problem:
     if problems is None:
         fetch_problems()
-    if fid in problems:
-        return problems[fid]
-    else:
-        return None
+    return problems[fid]
