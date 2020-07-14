@@ -17,86 +17,108 @@
   - 167
   - 240
 - title: LeetCode 11. 盛最多水的容器
-  link:
+  link: https://mp.weixin.qq.com/s/RfTyqnIpLwJpRtzPWVZvHA
   problems:
   - 11
 - title: LeetCode 例题精讲 | 05 双指针×链表问题：快慢指针
-  link:
+  link: https://mp.weixin.qq.com/s/2CLloKhD8tbId1-9uOsNzw
   problems:
   - 876
   - 19
   - 141
 - title: 链表综合题 | LeetCode 148. 链表排序
-  link:
+  link: https://mp.weixin.qq.com/s/sg2qP5uBEp--bTOYdK_BMw
   problems:
   - 148
 - title: LeetCode 例题精讲 | 06 旋转数组问题：基本操作的威力
-  link:
+  link: https://mp.weixin.qq.com/s/S-wAKPu8OcI7FyrBkYBzQg
   problems:
   - 189
 - title: LeetCode 例题精讲 | 07 变位词问题：基本数据结构的威力
-  link:
+  link: https://mp.weixin.qq.com/s/aC8P2Yme35H49GzcoqhzLg
   problems:
   - 242
 - title: LeetCode 例题精讲 | 08 排列组合问题：回溯法的候选集合
-  link:
+  link: https://mp.weixin.qq.com/s/b6og5Ro4vx-3--qPpi22Mw
   problems:
   - 46
   - 77
 - title: LeetCode 例题精讲 | 09 排列组合问题再探：回溯法的去重策略
-  link:
+  link: https://mp.weixin.qq.com/s/h-dzViBTVWmkReA-dbufXA
   problems:
   - 90
   - 47
 - title: 一套代码解决 Combination Sum 系列问题（LeetCode 39/40/216）
-  link:
+  link: https://mp.weixin.qq.com/s/uLd8V-YB3Fy3ZNUcQHo8jw
   problems:
   - 39
   - 40
   - 216
 - title: LeetCode 例题精讲 | 10 二叉树直径：二叉树遍历中的全局变量
-  link:
+  link: https://mp.weixin.qq.com/s/ZDszP9ashAX6WgtVzhheaQ
   problems:
   - 543
   - 124
   - 110
   - 563
 - title: 二叉树问题太复杂？「三步走」方法解决它！
-  link:
+  link: https://mp.weixin.qq.com/s/rweTurnXKD5XY5bH2nqlPQ
   problems:
   - 1372
   - 1373
 - title: LeetCode 例题精讲 | 11 二叉树转化为链表：二叉树遍历中的相邻结点
-  link:
+  link: https://mp.weixin.qq.com/s/nzQmAOjKMj3ikHXeCUK1zg
   problems:
   - 98
   - 426
 - title: LeetCode 例题精讲 | 12 岛屿问题：网格结构中的 DFS
-  link:
+  link: https://mp.weixin.qq.com/s/1Xi6icqr6JiT8D0jTeamzg
   problems:
   - 463
   - 695
   - 827
 - title: LeetCode 例题精讲 | 13 BFS 的使用场景：层序遍历、最短路径问题
-  link:
+  link: https://mp.weixin.qq.com/s/j6Cjn1DgaMaN1Kwc9mF13Q
   problems:
   - 102
   - 1162
 - title: LeetCode 例题精讲 | 14 打家劫舍问题：动态规划的解题四步骤
-  link:
+  link: https://mp.weixin.qq.com/s/hSAID_hOPGy_DKleq3_DdA
   problems:
   - 198
 - title: LeetCode 例题精讲 | 15 最长公共子序列：二维动态规划的解法
-  link:
+  link: https://mp.weixin.qq.com/s/dHIeiIQWAeynmYSq9IdqJg
   problems:
   - 1143
 - title: 经典动态规划：编辑距离
-  link:
+  link: https://mp.weixin.qq.com/s/sJZw3ECrgpNItjdzd7g-dA
   problems:
   - 72
 - title: LeetCode 例题精讲 | 16 最大子数组和：子数组类问题的动态规划技巧
-  link:
+  link: https://mp.weixin.qq.com/s/e6L2tvWOS_D0obHR_360Gw
   problems:
   - 53
   - 718
-
+- title: LeetCode 例题精讲 | 17 动态规划如何拆分子问题，简化思路
+  link: https://mp.weixin.qq.com/s/TE-p4WYQBBubhxmT137O9w
+  problems:
+  - 978
+- title: 一文教你股票买卖问题实用而装逼的解法
+  link: https://mp.weixin.qq.com/s/CWGKl0Ctfc6wStcvBJsD3Q
+  problems:
+  - 123
+- title: 经典动态规划：「换硬币」系列三道问题详解
+  link: https://mp.weixin.qq.com/s/pTMsIg9I0z102DQ4HMrYCA
+  problems:
+  - 322
+  - 377
+  - 518
+- title: LeetCode 例题精讲 | 18 前缀和：空间换时间的技巧
+  link: https://mp.weixin.qq.com/s/lg4tZUfGcXoKq1jOQtpKJw
+  problems:
+  - 303
+  - 724
+  - 560
+- title: 时间复杂度分析快速入门：题型分类法
+  link: https://mp.weixin.qq.com/s/Rzdz_dwS_4eOoX7XkFIALQ
+  problems:

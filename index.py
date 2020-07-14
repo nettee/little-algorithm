@@ -38,7 +38,10 @@ class ArticleInfo:
     problems: List[Problem]
 
     def __post_init__(self) -> None:
-        self.problems = [Problem.from_fid(str(pid)) for pid in self.problems]
+        if self.problems is None:
+            self.problems = []
+        else:
+            self.problems = [Problem.from_fid(str(pid)) for pid in self.problems]
 
     @property
     def escaped_title(self) -> str:
