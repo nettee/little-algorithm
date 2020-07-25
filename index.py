@@ -9,6 +9,8 @@ import yaml
 import leetcode.graphql
 import leetcode.problems
 from little import render
+from little.model import SolutionList
+from little.solution import find_solutions
 
 
 @dataclass
@@ -18,17 +20,21 @@ class Problem:
     title: str
     translated_title: str
     url: str
+    solutions: SolutionList
 
     @classmethod
     def from_fid(cls, fid: str):
         problem = leetcode.problems.query_by_id(fid)
+        # TODO add local cache
         translated_title = leetcode.graphql.query_translated_title_by_slug(problem.slug)
+        solutions = find_solutions(problem.fid)
         # print('translated_title: ', problem.translated_title)
         return Problem(fid=fid,
                        slug=problem.slug,
                        title=problem.title,
                        translated_title=translated_title,
-                       url=problem.url)
+                       url=problem.url,
+                       solutions=solutions)
 
 
 @dataclass
