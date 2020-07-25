@@ -1,5 +1,15 @@
 # Little Algorithm
 
+从 2020 年初开始，我在公众号《面向大象编程》上发表面试算法、LeetCode 题解相关文章，至今收获不少好评。此仓库是公众号内容的补充，包括公众号文章涉及到的题目的参考代码，以及 LeetCode 题目到文章链接的索引。
+
+## 如何使用本仓库
+
+1、关注我的公众号 **面向大象编程** 获取文章更新。我的公众号坚持原创更新，干货分享，绝对是值得关注的技术公众号。
+
+2、公众号文章目前绝大部分都是拿 LeetCode 原题作为例题，讲解算法题解题思路。从下方「参考代码」部分的表格中找到你喜欢的 LeetCode 题目，即可找到对应的参考代码以及讲解文章链接。
+
+## 参考代码
+
 | 题号 | 题目名 | 题解代码 | 对应文章 |
 | :-: | --- | --- | --- |
 | [11](https://leetcode-cn.com/problems/container-with-most-water) | Container With Most Water<br />盛最多水的容器 | [Java](solutions/0011/1.java) | [LeetCode 11. 盛最多水的容器](https://mp.weixin.qq.com/s/RfTyqnIpLwJpRtzPWVZvHA) |
@@ -49,3 +59,7 @@
 | [1372](https://leetcode-cn.com/problems/longest-zigzag-path-in-a-binary-tree) | Longest ZigZag Path in a Binary Tree<br />二叉树中的最长交错路径 | [Java](solutions/1372/1.java) | [二叉树问题太复杂？「三步走」方法解决它！](https://mp.weixin.qq.com/s/rweTurnXKD5XY5bH2nqlPQ) |
 | [1373](https://leetcode-cn.com/problems/maximum-sum-bst-in-binary-tree) | Maximum Sum BST in Binary Tree<br />二叉搜索子树的最大键值和 | [Java](solutions/1373/1.java) | [二叉树问题太复杂？「三步走」方法解决它！](https://mp.weixin.qq.com/s/rweTurnXKD5XY5bH2nqlPQ) |
 
+
+## 公众号文章整理
+
+可关注公众号《面向大象编程》，在公众号菜单中有文章目录。
