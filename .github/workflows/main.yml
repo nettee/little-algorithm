@@ -16,23 +16,26 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out repository under `source`
       - name: Check out source
         uses: actions/checkout@v3
         with:
+          ref: source
           path: source
-          
+
       - name: Check out target
         uses: actions/checkout@v3
         with:
+          ref: master
           path: target
 
       - name: Build documentation
         run: |
-          cd source
+          cd $GITHUB_WORKSPACE/source
+          pwd
           git status
 
       - name: Deploy documentation
         run: |
-          cd target
+          cd $GITHUB_WORKSPACE/target
+          pwd
           git status
