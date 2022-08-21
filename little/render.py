@@ -6,6 +6,7 @@ from index import ArticleInfo
 
 
 def render_readme(article_infos: List[ArticleInfo]) -> None:
+    print('Render README.md ...')
     items = []
     for article in article_infos:
         for problem in article.problems:
@@ -19,4 +20,5 @@ def render_readme(article_infos: List[ArticleInfo]) -> None:
 
     with open('README.md', 'w') as f:
         print(rendered, file=f)
+        print('Render README.md done.')
 
