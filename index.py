@@ -72,7 +72,7 @@ def build_table(articleInfos: List[ArticleInfo], template_path: str) -> None:
 if __name__ == '__main__':
     filename = sys.argv[1]
     template_path = sys.argv[2]
-    print(filename)
+    print('Load article info from {} ...'.format(filename))
 
     with open(filename, 'r') as f:
         articles = yaml.load(f, Loader=yaml.Loader)
