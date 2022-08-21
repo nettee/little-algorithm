@@ -73,14 +73,24 @@ def dump_meta(articleInfos: List[ArticleInfo]) -> None:
 
 
 if __name__ == '__main__':
-    filename = sys.argv[1]
-    template_path = sys.argv[2]
-    print('Load article info from {} ...'.format(filename))
+    problems = []
+    for i in range(1, 1400):
+        fid = str(i)
+        problem = get_problem_info(fid)
+        problems.append(problem)
+    data = [p.as_data() for p in problems]
+    with open('leetcode/problems.yaml', 'w') as f:
+        yaml.dump(data, f, encoding='utf-8', allow_unicode=True)
 
-    with open(filename, 'r') as f:
-        articles = yaml.load(f, Loader=yaml.Loader)
-    
-    articleInfos = [ArticleInfo(**article) for article in articles]
-
-    dump_meta(articleInfos)
-    build_table(articleInfos, template_path)
+# if __name__ == '__main__':
+#     filename = sys.argv[1]
+#     template_path = sys.argv[2]
+#     print('Load article info from {} ...'.format(filename))
+#
+#     with open(filename, 'r') as f:
+#         articles = yaml.load(f, Loader=yaml.Loader)
+#
+#     articleInfos = [ArticleInfo(**article) for article in articles]
+#
+#     dump_meta(articleInfos)
+#     build_table(articleInfos, template_path)

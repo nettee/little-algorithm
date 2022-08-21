@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
+from typing import List, Dict, Any
 
 
 @dataclass
@@ -45,3 +45,12 @@ class Problem:
     translated_title: str  # 标题（中文）
     url: str  # leetcode-cn 链接
     solutions: SolutionList
+
+    def as_data(self) -> Dict[str, Any]:
+        return {
+            'fid': self.fid,
+            'slug': self.slug,
+            'title': self.title,
+            'translated_title': self.translated_title,
+            'url': self.url,
+        }
