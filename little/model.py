@@ -44,7 +44,7 @@ class Problem:
     title: str  # 标题（英文）
     translated_title: str  # 标题（中文）
     url: str  # leetcode-cn 链接
-    solutions: SolutionList
+    # solutions: SolutionList
 
     def as_data(self) -> Dict[str, Any]:
         return {

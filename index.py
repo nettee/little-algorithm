@@ -2,6 +2,7 @@
 
 import sys
 from dataclasses import dataclass, asdict
+from pathlib import Path
 from typing import List
 
 import yaml
@@ -13,16 +14,32 @@ from little.model import Problem
 from little.solution import find_solutions
 
 
+def get_problem_info_from_local(fid: str):
+    # TODO assert calling from project root
+    project_path = Path('.')
+    problems_path = project_path / 'meta' / 'problems.yaml'
+    with open(problems_path, 'r') as f:
+        data = yaml.load(f, Loader=yaml.FullLoader)
+    for item in data:
+        problem = Problem(**item)
+        if problem.fid == fid:
+            return problem
+    return None
+
+
 def get_problem_info(fid: str):
-    # TODO add local cache
-    leetcode_problem = leetcode.problems.query_by_id(fid)
-    translated_title = leetcode.graphql.query_translated_title_by_slug(leetcode_problem.slug)
-    return Problem(fid=fid,
-                   slug=leetcode_problem.slug,
-                   title=leetcode_problem.title,
-                   translated_title=translated_title,
-                   url=leetcode_problem.url,
-                   solutions=[])
+    problem = get_problem_info_from_local(fid)
+    if problem is None:
+        print('Fetch problem {} info from leetcode ...'.format(fid))
+        leetcode_problem = leetcode.problems.query_by_id(fid)
+        translated_title = leetcode.graphql.query_translated_title_by_slug(leetcode_problem.slug)
+        problem = Problem(fid=fid,
+                          slug=leetcode_problem.slug,
+                          title=leetcode_problem.title,
+                          translated_title=translated_title,
+                          url=leetcode_problem.url)
+        # TODO add to cache
+    return problem
 
 
 def build_problem_from_fid(fid: str):
@@ -73,24 +90,14 @@ def dump_meta(articleInfos: List[ArticleInfo]) -> None:
 
 
 if __name__ == '__main__':
-    problems = []
-    for i in range(1, 1400):
-        fid = str(i)
-        problem = get_problem_info(fid)
-        problems.append(problem)
-    data = [p.as_data() for p in problems]
-    with open('leetcode/problems.yaml', 'w') as f:
-        yaml.dump(data, f, encoding='utf-8', allow_unicode=True)
+    filename = sys.argv[1]
+    template_path = sys.argv[2]
+    print('Load article info from {} ...'.format(filename))
 
-# if __name__ == '__main__':
-#     filename = sys.argv[1]
-#     template_path = sys.argv[2]
-#     print('Load article info from {} ...'.format(filename))
-#
-#     with open(filename, 'r') as f:
-#         articles = yaml.load(f, Loader=yaml.Loader)
-#
-#     articleInfos = [ArticleInfo(**article) for article in articles]
-#
-#     dump_meta(articleInfos)
-#     build_table(articleInfos, template_path)
+    with open(filename, 'r') as f:
+        articles = yaml.load(f, Loader=yaml.Loader)
+
+    articleInfos = [ArticleInfo(**article) for article in articles]
+
+    dump_meta(articleInfos)
+    build_table(articleInfos, template_path)
