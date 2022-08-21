@@ -13,17 +13,23 @@ from little.model import Problem
 from little.solution import find_solutions
 
 
-def build_problem_from_fid(fid: str):
+def get_problem_info(fid: str):
     # TODO add local cache
-    problem = leetcode.problems.query_by_id(fid)
-    translated_title = leetcode.graphql.query_translated_title_by_slug(problem.slug)
-    solutions = find_solutions(problem.fid)
+    leetcode_problem = leetcode.problems.query_by_id(fid)
+    translated_title = leetcode.graphql.query_translated_title_by_slug(leetcode_problem.slug)
     return Problem(fid=fid,
-                   slug=problem.slug,
-                   title=problem.title,
+                   slug=leetcode_problem.slug,
+                   title=leetcode_problem.title,
                    translated_title=translated_title,
-                   url=problem.url,
-                   solutions=solutions)
+                   url=leetcode_problem.url,
+                   solutions=[])
+
+
+def build_problem_from_fid(fid: str):
+    problem = get_problem_info(fid)
+    solutions = find_solutions(problem.fid)
+    problem.solutions = solutions
+    return problem
 
 
 @dataclass

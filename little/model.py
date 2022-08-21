@@ -39,7 +39,7 @@ class SolutionList:
 
 @dataclass
 class Problem:
-    fid: str  # 文件编号
+    fid: str  # 前端题目 ID
     slug: str  # url 中的 slug
     title: str  # 标题（英文）
     translated_title: str  # 标题（中文）

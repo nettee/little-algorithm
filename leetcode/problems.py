@@ -47,7 +47,7 @@ class Problem:
         self.difficulty = Difficulty(**self.difficulty)
 
     @property
-    def iid(self) -> int:
+    def qid(self) -> int:
         return self.stat.question_id
 
     @property
