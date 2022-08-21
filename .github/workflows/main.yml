@@ -41,6 +41,8 @@ jobs:
           git status
           cp $GITHUB_WORKSPACE/source/README.md .
           ls -lhd README.md
+          git config --global user.email "3953668+nettee@users.noreply.github.com"
+          git config --global user.name "little-algorithm [bot]"
           git add -A
           git commit -m "Update README.md"
           git push
