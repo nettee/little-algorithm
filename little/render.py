@@ -18,7 +18,7 @@ def render_readme(article_infos: List[ArticleInfo]) -> None:
     # TODO assert calling from project root
     project_path = Path('.')
     template_path = project_path / 'little/templates'
-    env = Environment(loader=FileSystemLoader(template_path.absolute()))
+    env = Environment(loader=FileSystemLoader(str(template_path.absolute())))
     template = env.get_template('README.md')
     rendered = template.render(items=items)
 
