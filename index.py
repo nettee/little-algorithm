@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import List
 
 import yaml
@@ -67,7 +67,15 @@ def build_table(articleInfos: List[ArticleInfo], template_path: str) -> None:
     #         index[p.fid] = article
 
     render.render_readme(articleInfos, template_path)
-    
+
+
+def dump_meta(articleInfos: List[ArticleInfo]) -> None:
+    data = [asdict(info) for info in articleInfos]
+    yaml_content = yaml.dump(data, Dumper=yaml.Dumper)
+    with open('index.yaml', 'w') as of:
+        print(yaml_content, file=of)
+    print('Saved meta info to index.yaml')
+
 
 if __name__ == '__main__':
     filename = sys.argv[1]
@@ -78,4 +86,6 @@ if __name__ == '__main__':
         articles = yaml.load(f, Loader=yaml.Loader)
     
     articleInfos = [ArticleInfo(**article) for article in articles]
+
+    dump_meta(articleInfos)
     build_table(articleInfos, template_path)
