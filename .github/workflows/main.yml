@@ -31,13 +31,13 @@ jobs:
       - name: Build documentation
         run: |
           cd $GITHUB_WORKSPACE/source
-          pwd
           git status
+          python3 index.py
+          ls -lhd README.md
 
       - name: Deploy documentation
         run: |
           cd $GITHUB_WORKSPACE/target
-          pwd
           git status
           cp $GITHUB_WORKSPACE/source/README.md .
           ls -lhd README.md

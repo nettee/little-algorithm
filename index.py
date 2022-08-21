@@ -2,6 +2,7 @@
 
 import sys
 from dataclasses import dataclass, asdict
+from pathlib import Path
 from typing import List
 
 import yaml
@@ -59,13 +60,13 @@ class ArticleInfo:
             return '[{}]({})'.format(self.escaped_title, self.link)
 
 
-def build_table(articleInfos: List[ArticleInfo], template_path: str) -> None:
+def build_table(articleInfos: List[ArticleInfo]) -> None:
     # index = {}
     # for article in articleInfos:
     #     for p in article.problems:
     #         index[p.fid] = article
 
-    render.render_readme(articleInfos, template_path)
+    render.render_readme(articleInfos)
 
 
 def dump_meta(articleInfos: List[ArticleInfo]) -> None:
@@ -77,16 +78,17 @@ def dump_meta(articleInfos: List[ArticleInfo]) -> None:
 
 
 if __name__ == '__main__':
-    filename = sys.argv[1]
-    template_path = sys.argv[2]
-    print('Load article info from {} ...'.format(filename))
+    # TODO assert calling from project root
+    project_path = Path('.')
+    articles_path = project_path / 'meta' / 'articles.yaml'
 
-    with open(filename, 'r') as f:
+    print('Load article info from {} ...'.format(articles_path.absolute()))
+    with open(articles_path, 'r') as f:
         articles = yaml.load(f, Loader=yaml.Loader)
 
     articleInfos = [ArticleInfo(**article) for article in articles]
 
     dump_meta(articleInfos)
-    build_table(articleInfos, template_path)
+    build_table(articleInfos)
 
     flush_problem_info()
