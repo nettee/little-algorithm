@@ -2,7 +2,6 @@
 
 import sys
 from dataclasses import dataclass, asdict
-from pathlib import Path
 from typing import List
 
 import yaml
@@ -11,24 +10,12 @@ import leetcode.graphql
 import leetcode.problems
 from little import render
 from little.model import Problem
+from little.problem import get_problem_by_fid, add_problem_info, flush_problem_info
 from little.solution import find_solutions
 
 
-def get_problem_info_from_local(fid: str):
-    # TODO assert calling from project root
-    project_path = Path('.')
-    problems_path = project_path / 'meta' / 'problems.yaml'
-    with open(problems_path, 'r') as f:
-        data = yaml.load(f, Loader=yaml.FullLoader)
-    for item in data:
-        problem = Problem(**item)
-        if problem.fid == fid:
-            return problem
-    return None
-
-
 def get_problem_info(fid: str):
-    problem = get_problem_info_from_local(fid)
+    problem = get_problem_by_fid(fid)  # read from cache first
     if problem is None:
         print('Fetch problem {} info from leetcode ...'.format(fid))
         leetcode_problem = leetcode.problems.query_by_id(fid)
@@ -38,7 +25,7 @@ def get_problem_info(fid: str):
                           title=leetcode_problem.title,
                           translated_title=translated_title,
                           url=leetcode_problem.url)
-        # TODO add to cache
+        add_problem_info(problem)  # add to cache
     return problem
 
 
@@ -101,3 +88,5 @@ if __name__ == '__main__':
 
     dump_meta(articleInfos)
     build_table(articleInfos, template_path)
+
+    flush_problem_info()
