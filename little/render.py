@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 from index import ArticleInfo
 
 
-def render_readme(article_infos: List[ArticleInfo]) -> None:
+def render_readme(article_infos: List[ArticleInfo], template_path: str) -> None:
     print('Render README.md ...')
     items = []
     for article in article_infos:
@@ -14,7 +14,7 @@ def render_readme(article_infos: List[ArticleInfo]) -> None:
 
     items.sort(key=lambda item: '{:>6}'.format(item[0]))
                 
-    env = Environment(loader=FileSystemLoader('/Users/william/projects/little-algorithm/little/templates'))
+    env = Environment(loader=FileSystemLoader(template_path))
     template = env.get_template('README.md')
     rendered = template.render(items=items)
 

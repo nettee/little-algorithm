@@ -59,22 +59,23 @@ class ArticleInfo:
         else:
             return '[{}]({})'.format(self.escaped_title, self.link)
 
-def build_table(articleInfos: List[ArticleInfo]) -> None:
+
+def build_table(articleInfos: List[ArticleInfo], template_path: str) -> None:
     # index = {}
     # for article in articleInfos:
     #     for p in article.problems:
     #         index[p.fid] = article
 
-    render.render_readme(articleInfos)
+    render.render_readme(articleInfos, template_path)
     
 
 if __name__ == '__main__':
     filename = sys.argv[1]
+    template_path = sys.argv[2]
     print(filename)
 
     with open(filename, 'r') as f:
         articles = yaml.load(f, Loader=yaml.Loader)
     
     articleInfos = [ArticleInfo(**article) for article in articles]
-    build_table(articleInfos)
-    
+    build_table(articleInfos, template_path)
