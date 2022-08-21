@@ -36,3 +36,12 @@ class SolutionList:
             parts = ', '.join(f'[{i+1}]({s.uri()})' for (i, s) in enumerate(self.solutions))
             return f'{lang}({parts})'
 
+
+@dataclass
+class Problem:
+    fid: str  # 文件编号
+    slug: str  # url 中的 slug
+    title: str  # 标题（英文）
+    translated_title: str  # 标题（中文）
+    url: str  # leetcode-cn 链接
+    solutions: SolutionList

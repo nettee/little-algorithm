@@ -9,18 +9,8 @@ import yaml
 import leetcode.graphql
 import leetcode.problems
 from little import render
-from little.model import SolutionList
+from little.model import Problem
 from little.solution import find_solutions
-
-
-@dataclass
-class Problem:
-    fid: str
-    slug: str
-    title: str
-    translated_title: str
-    url: str
-    solutions: SolutionList
 
 
 def build_problem_from_fid(fid: str):
@@ -34,6 +24,7 @@ def build_problem_from_fid(fid: str):
                    translated_title=translated_title,
                    url=problem.url,
                    solutions=solutions)
+
 
 @dataclass
 class ArticleInfo:
