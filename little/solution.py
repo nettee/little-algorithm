@@ -3,6 +3,23 @@ from pathlib import Path
 from little.model import Solution, SolutionList
 
 
+def get_lang(suffix: str) -> str:
+    if suffix == 'cpp':
+        return 'C++'
+    elif suffix == 'java':
+        return 'Java'
+    return 'Java'
+
+
+def get_solution_from_path(path: Path) -> Solution:
+    lang = get_lang(path.suffix)
+    try:
+        order = int(path.stem)
+        return Solution(path=path, lang=lang, order=order)
+    except ValueError:
+        return Solution(path=path, lang=lang)
+
+
 def find_solutions(fid: str) -> SolutionList:
     dir_name = fid.zfill(4)
 
@@ -16,4 +33,6 @@ def find_solutions(fid: str) -> SolutionList:
     if len(solution_files) == 0:
         print(f'Warning: no solutions found for problem {fid} -- No files in dir: {solution_path.absolute()}')
         return SolutionList(solutions=list())
-    return SolutionList(solutions=[Solution(path=path) for path in solution_files])
+    solutions = [get_solution_from_path(path) for path in solution_files]
+    solutions.sort(key=lambda s: (s.lang, s.order))
+    return SolutionList(solutions=solutions)

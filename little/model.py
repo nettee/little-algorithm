@@ -7,6 +7,7 @@ from typing import List, Dict, Any
 class Solution:
     path: Path
     lang: str = 'Java'
+    order: int = 999
 
     def file_name(self) -> str:
         return self.path.name
