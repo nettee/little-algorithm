@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Dict, Any
+from collections import defaultdict
 
 
 @dataclass
@@ -28,13 +29,21 @@ class SolutionList:
     def md_piece(self) -> str:
         if len(self.solutions) == 0:
             return ''
-        elif len(self.solutions) == 1:
-            solution = self.solutions[0]
-            return f'[{solution.lang}]({solution.uri()})'
+
+        # group by lang
+        m = defaultdict(list)
+        for s in self.solutions:
+            m[s.lang].append(s)
+        piece_list = [self.md_piece_lang(lang, ss) for (lang, ss) in m.items()]
+        return ', '.join(piece_list)
+
+    @staticmethod
+    def md_piece_lang(lang: str, solutions: List[Solution]) -> str:
+        if len(solutions) == 1:
+            solution = solutions[0]
+            return f'[{lang}]({solution.uri()})'
         else:
-            # TODO assert solutions are all written in Java
-            lang = self.solutions[0].lang
-            parts = ', '.join(f'[{i+1}]({s.uri()})' for (i, s) in enumerate(self.solutions))
+            parts = ', '.join(f'[{i+1}]({s.uri()})' for (i, s) in enumerate(solutions))
             return f'{lang}({parts})'
 
 
