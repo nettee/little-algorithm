@@ -4,9 +4,9 @@ from little.model import Solution, SolutionList
 
 
 def get_lang(suffix: str) -> str:
-    if suffix == 'cpp':
+    if suffix == '.cpp':
         return 'C++'
-    elif suffix == 'java':
+    elif suffix == '.java':
         return 'Java'
     return 'Java'
 

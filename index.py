@@ -88,6 +88,11 @@ if __name__ == '__main__':
 
     articleInfos = [ArticleInfo(**article) for article in articles]
 
+    a1 = articleInfos[0]
+    p1 = a1.problems[0]
+    ss = p1.solutions
+    print(ss)
+
     dump_meta(articleInfos)
     build_table(articleInfos)
 
