@@ -49,7 +49,7 @@ TBD
 | [216](https://leetcode-cn.com/problems/combination-sum-iii) | Combination Sum III<br />组合总和 III | [Java](solutions/0216/1.java) | [一套代码解决 Combination Sum 系列问题（LeetCode 39/40/216）](https://mp.weixin.qq.com/s/uLd8V-YB3Fy3ZNUcQHo8jw) |
 | [240](https://leetcode-cn.com/problems/search-a-2d-matrix-ii) | Search a 2D Matrix II<br />搜索二维矩阵 II | [Java](solutions/0240/1.java) | [LeetCode 例题精讲 \| 04 用双指针解 Two Sum：缩减搜索空间](https://mp.weixin.qq.com/s/Zqy2CAu7L8zw-g1N2v76SQ) |
 | [242](https://leetcode-cn.com/problems/valid-anagram) | Valid Anagram<br />有效的字母异位词 | [Java](solutions/0242/1.java) | [LeetCode 例题精讲 \| 07 变位词问题：基本数据结构的威力](https://mp.weixin.qq.com/s/aC8P2Yme35H49GzcoqhzLg) |
-| [257](https://leetcode-cn.com/problems/binary-tree-paths) | Binary Tree Paths<br />二叉树的所有路径 |  | [LeetCode 例题精讲 \| 02 Path Sum：二叉树的子问题划分](https://mp.weixin.qq.com/s/uSjnfPPXTzScCRQBv6ew1Q) |
+| [257](https://leetcode-cn.com/problems/binary-tree-paths) | Binary Tree Paths<br />二叉树的所有路径 | [Java](solutions/0257/1.java) | [LeetCode 例题精讲 \| 02 Path Sum：二叉树的子问题划分](https://mp.weixin.qq.com/s/uSjnfPPXTzScCRQBv6ew1Q) |
 | [303](https://leetcode-cn.com/problems/range-sum-query-immutable) | Range Sum Query - Immutable<br />区域和检索 - 数组不可变 | [Java](solutions/0303/1.java) | [LeetCode 例题精讲 \| 18 前缀和：空间换时间的技巧](https://mp.weixin.qq.com/s/lg4tZUfGcXoKq1jOQtpKJw) |
 | [322](https://leetcode-cn.com/problems/coin-change) | Coin Change<br />零钱兑换 | [Java](solutions/0322/1.java) | [经典动态规划：「换硬币」系列三道问题详解](https://mp.weixin.qq.com/s/pTMsIg9I0z102DQ4HMrYCA) |
 | [377](https://leetcode-cn.com/problems/combination-sum-iv) | Combination Sum IV<br />组合总和 Ⅳ | [Java](solutions/0377/1.java) | [经典动态规划：「换硬币」系列三道问题详解](https://mp.weixin.qq.com/s/pTMsIg9I0z102DQ4HMrYCA) |
