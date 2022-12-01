@@ -29,7 +29,7 @@ TBD
 | [90](https://leetcode-cn.com/problems/subsets-ii) | Subsets II<br />子集 II | [Java](solutions/0090/1.java) | [LeetCode 例题精讲 \| 09 排列组合问题再探：回溯法的去重策略](https://mp.weixin.qq.com/s/h-dzViBTVWmkReA-dbufXA) |
 | [92](https://leetcode-cn.com/problems/reverse-linked-list-ii) | Reverse Linked List II<br />反转链表 II | [C++](solutions/0092/1.cpp) | [LeetCode 例题精讲 \| 01 反转链表：如何轻松重构链表](https://mp.weixin.qq.com/s/KTA6Ng1C33fydEn4VDj-7Q) |
 | [98](https://leetcode-cn.com/problems/validate-binary-search-tree) | Validate Binary Search Tree<br />验证二叉搜索树 | [Java](solutions/0098/1.java) | [LeetCode 例题精讲 \| 11 二叉树转化为链表：二叉树遍历中的相邻结点](https://mp.weixin.qq.com/s/nzQmAOjKMj3ikHXeCUK1zg) |
-| [100](https://leetcode-cn.com/problems/same-tree) | Same Tree<br />相同的树 |  | [LeetCode 例题精讲 \| 02 Path Sum：二叉树的子问题划分](https://mp.weixin.qq.com/s/uSjnfPPXTzScCRQBv6ew1Q) |
+| [100](https://leetcode-cn.com/problems/same-tree) | Same Tree<br />相同的树 | [Java](solutions/0100/1.java) | [LeetCode 例题精讲 \| 02 Path Sum：二叉树的子问题划分](https://mp.weixin.qq.com/s/uSjnfPPXTzScCRQBv6ew1Q) |
 | [101](https://leetcode-cn.com/problems/symmetric-tree) | Symmetric Tree<br />对称二叉树 |  | [LeetCode 例题精讲 \| 02 Path Sum：二叉树的子问题划分](https://mp.weixin.qq.com/s/uSjnfPPXTzScCRQBv6ew1Q) |
 | [102](https://leetcode-cn.com/problems/binary-tree-level-order-traversal) | Binary Tree Level Order Traversal<br />二叉树的层序遍历 | [Java](solutions/0102/1.java) | [LeetCode 例题精讲 \| 13 BFS 的使用场景：层序遍历、最短路径问题](https://mp.weixin.qq.com/s/j6Cjn1DgaMaN1Kwc9mF13Q) |
 | [110](https://leetcode-cn.com/problems/balanced-binary-tree) | Balanced Binary Tree<br />平衡二叉树 | [Java](solutions/0110/1.java) | [LeetCode 例题精讲 \| 10 二叉树直径：二叉树遍历中的全局变量](https://mp.weixin.qq.com/s/ZDszP9ashAX6WgtVzhheaQ) |
