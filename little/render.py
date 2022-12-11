@@ -5,7 +5,7 @@ from typing import List
 from jinja2 import Environment, FileSystemLoader
 
 from index import ArticleInfo
-from little.model import Problem
+from little.model import Problem, ProblemSolutionSet
 
 
 @dataclass
@@ -15,14 +15,17 @@ class ProblemViewItem:
     article: ArticleInfo
 
 
-def render_readme(article_infos: List[ArticleInfo]) -> None:
+def render_readme(article_infos: List[ArticleInfo], solutions: List[ProblemSolutionSet]) -> None:
     print('Render README.md ...')
+
     problem_view = []
     for article in article_infos:
         for problem in article.problems:
             problem_view.append(ProblemViewItem(problem.fid, problem, article))
-
     problem_view.sort(key=lambda item: '{:>6}'.format(item.fid))
+
+    article_view = []
+    
 
     # TODO assert calling from project root
     project_path = Path('.')

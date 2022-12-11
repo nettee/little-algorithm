@@ -10,9 +10,9 @@ import yaml
 import leetcode.graphql
 import leetcode.problems
 from little import render
-from little.model import Problem
+from little.model import Problem, ProblemSolutionSet
 from little.problem import get_problem_by_fid, add_problem_info, flush_problem_info
-from little.solution import find_solutions
+from little.solution import find_problem_solutions, find_all_problem_solutions
 
 
 def get_problem_info(fid: str):
@@ -32,7 +32,7 @@ def get_problem_info(fid: str):
 
 def build_problem_from_fid(fid: str):
     problem = get_problem_info(fid)
-    solutions = find_solutions(problem.fid)
+    solutions = find_problem_solutions(problem.fid)
     problem.solutions = solutions
     return problem
 
@@ -60,15 +60,6 @@ class ArticleInfo:
             return '[{}]({})'.format(self.escaped_title, self.link)
 
 
-def build_table(articleInfos: List[ArticleInfo]) -> None:
-    # index = {}
-    # for article in articleInfos:
-    #     for p in article.problems:
-    #         index[p.fid] = article
-
-    render.render_readme(articleInfos)
-
-
 def dump_meta(articleInfos: List[ArticleInfo]) -> None:
     data = [asdict(info) for info in articleInfos]
     yaml_content = yaml.dump(data, Dumper=yaml.Dumper)
@@ -88,12 +79,15 @@ if __name__ == '__main__':
 
     articleInfos = [ArticleInfo(**article) for article in articles]
 
-    a1 = articleInfos[0]
-    p1 = a1.problems[0]
-    ss = p1.solutions
-    print(ss)
+    solutions = find_all_problem_solutions()
+
+    # a1 = articleInfos[0]
+    # p1 = a1.problems[0]
+    # ss = p1.solutions
+    # print(ss)
 
     dump_meta(articleInfos)
-    build_table(articleInfos)
+
+    render.render_readme(articleInfos, solutions)
 
     flush_problem_info()

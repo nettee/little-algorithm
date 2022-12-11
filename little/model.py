@@ -5,7 +5,7 @@ from collections import defaultdict
 
 
 @dataclass
-class Solution:
+class SolutionFile:
     path: Path
     lang: str = 'Java'
     order: int = 999
@@ -22,9 +22,11 @@ class Solution:
         return f'[{text}]({uri})'
 
 
+# Solutions for a problem
 @dataclass
-class SolutionList:
-    solutions: List[Solution]
+class ProblemSolutionSet:
+    problem_fid: str
+    solutions: List[SolutionFile]
 
     def md_piece(self) -> str:
         if len(self.solutions) == 0:
@@ -38,7 +40,7 @@ class SolutionList:
         return ', '.join(piece_list)
 
     @staticmethod
-    def md_piece_lang(lang: str, solutions: List[Solution]) -> str:
+    def md_piece_lang(lang: str, solutions: List[SolutionFile]) -> str:
         if len(solutions) == 1:
             solution = solutions[0]
             return f'[{lang}]({solution.uri()})'
