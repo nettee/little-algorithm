@@ -3,6 +3,8 @@ from pathlib import Path
 from typing import List, Dict, Any
 from collections import defaultdict
 
+from leetcode.problems import Problem
+
 
 @dataclass
 class SolutionFile:
@@ -25,8 +27,11 @@ class SolutionFile:
 # Solutions for a problem
 @dataclass
 class ProblemSolutionSet:
-    problem_fid: str
+    problem: Problem
     solutions: List[SolutionFile]
+
+    def __post_init__(self) -> None:
+        self.problem.solutions = self  # TODO refactor
 
     def md_piece(self) -> str:
         if len(self.solutions) == 0:

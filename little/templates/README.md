@@ -18,7 +18,7 @@
 
 | 题号 | 题目名 | 题解代码 | 对应文章 |
 | :-: | --- | --- | --- |
-{% for item in problem_view %}| [{{ item.fid }}]({{ item.problem.url }}) | {{ item.problem.title }}<br />{{ item.problem.translated_title }} | {{ item.problem.solutions.md_piece() }} | {{ item.article.md_piece() }} |
+{% for item in problem_view %}| [{{ item.fid }}]({{ item.problem.url }}) | {{ item.problem.title }}<br />{{ item.problem.translated_title }} | {{ item.problem.solutions.md_piece() }} | {% if item.article %} {{ item.article.md_piece() }} {% endif %} |
 {% endfor %}
 
 ## 公众号文章整理

@@ -18,14 +18,19 @@ class ProblemViewItem:
 def render_readme(article_infos: List[ArticleInfo], solutions: List[ProblemSolutionSet]) -> None:
     print('Render README.md ...')
 
-    problem_view = []
+    fid2article = {}
     for article in article_infos:
         for problem in article.problems:
-            problem_view.append(ProblemViewItem(problem.fid, problem, article))
-    problem_view.sort(key=lambda item: '{:>6}'.format(item.fid))
+            fid2article[problem.fid] = article
 
-    article_view = []
-    
+    problem_view = []
+    for solution in solutions:
+        problem = solution.problem
+        fid = problem.fid
+        article = fid2article[fid] if fid in fid2article else None
+        problem_view.append(ProblemViewItem(fid, problem, article))
+
+    problem_view.sort(key=lambda item: '{:>6}'.format(item.fid))
 
     # TODO assert calling from project root
     project_path = Path('.')
