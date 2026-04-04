@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "little-algorithm"
+version = "0.1.0"
+description = "README generator for little-algorithm"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+  "jinja2>=3.1.6",
+  "pyyaml>=6.0.2",
+  "requests>=2.32.5",
+]
+
+[project.scripts]
+generate = "little_algorithm.generate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
