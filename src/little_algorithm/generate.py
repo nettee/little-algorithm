@@ -23,7 +23,21 @@ class GeneratorContext:
 
     @property
     def readme_path(self) -> Path:
+        return self.readme_en_path
+
+    @property
+    def readme_en_path(self) -> Path:
         return self.root / "README.md"
+
+    @property
+    def readme_zh_path(self) -> Path:
+        return self.root / "README_zh.md"
+
+    @property
+    def problem_cache_path(self) -> Path:
+        if self.readme_zh_path.exists():
+            return self.readme_zh_path
+        return self.readme_en_path
 
     @property
     def articles_path(self) -> Path:
@@ -114,7 +128,7 @@ def render_solution_md(solutions: list[SolutionFile]) -> str:
 
 def build_rows(context: GeneratorContext) -> list[TableRow]:
     articles = load_articles(context.articles_path)
-    cache = load_problem_cache(context.readme_path)
+    cache = load_problem_cache(context.problem_cache_path)
     rows: list[TableRow] = []
     for article in articles:
         for fid in article.problems:
@@ -135,7 +149,8 @@ def build_rows(context: GeneratorContext) -> list[TableRow]:
 def main() -> None:
     context = GeneratorContext(root=Path(__file__).resolve().parents[2])
     rows = build_rows(context)
-    render_readme(context.template_dir, context.readme_path, rows)
+    render_readme(context.template_dir, context.readme_zh_path, "README_zh.md.j2", rows)
+    render_readme(context.template_dir, context.readme_en_path, "README.md.j2", rows)
 
 
 if __name__ == "__main__":
