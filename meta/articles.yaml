@@ -1,124 +1,151 @@
-- title: LeetCode 例题精讲 | 01 反转链表：如何轻松重构链表
+- title: 反转链表：如何轻松重构链表
   link: https://nettee.io/zh/courses/algorithm/reverse-linked-list
   problems:
   - 206
-- title: LeetCode 例题精讲 | 02 Path Sum：二叉树的子问题划分
+  title_en: 'Reverse Linked List: How to Easily Restructure a Linked List'
+- title: Path Sum：二叉树的子问题划分
   link: https://nettee.io/zh/courses/algorithm/binary-tree-path-sum
   problems:
   - 112
-- title: LeetCode 例题精讲 | 03 从二叉树遍历到回溯算法
+  title_en: 'Path Sum: Subproblem Decomposition in Binary Trees'
+- title: 从二叉树遍历到回溯算法
   link: https://nettee.io/zh/courses/algorithm/binary-traverse-backtrack
   problems:
   - 113
   - 78
-- title: LeetCode 例题精讲 | 04 用双指针解 Two Sum：缩减搜索空间
+  title_en: From Binary Tree Traversal to Backtracking
+- title: 用双指针解 Two Sum：缩减搜索空间
   link: https://nettee.io/zh/courses/algorithm/reduce-search-space
   problems:
   - 167
   - 240
-- title: LeetCode 11. 盛最多水的容器
+  title_en: 'Solving Two Sum with Two Pointers: Reducing the Search Space'
+- title: 盛最多水的容器（蓄水池问题）
   link: https://nettee.io/zh/courses/algorithm/container-with-most-water
   problems:
   - 11
-- title: LeetCode 例题精讲 | 05 双指针×链表问题：快慢指针
+  title_en: Container With Most Water (Reservoir Problem)
+- title: 双指针×链表问题：快慢指针
   link: https://nettee.io/zh/courses/algorithm/fast-and-slow-pointers
   problems:
   - 876
   - 19
   - 141
-- title: 链表综合题 | LeetCode 148. 链表排序
+  title_en: 'Two Pointers × Linked List Problems: Fast and Slow Pointers'
+- title: 链表综合题：链表排序
   link: https://nettee.io/zh/courses/algorithm/sort-linked-list
   problems:
   - 148
-- title: LeetCode 例题精讲 | 06 旋转数组问题：基本操作的威力
+  title_en: 'Linked List Comprehensive Problem: Sorting a Linked List'
+- title: 基本操作的威力：以 reverse 为例
   link: https://nettee.io/zh/courses/algorithm/basic-operation-reverse
   problems:
   - 189
-- title: LeetCode 例题精讲 | 07 变位词问题：基本数据结构的威力
+  title_en: 'The Power of Basic Operations: Reverse as an Example'
+- title: 变位词问题：基本数据结构的威力
   link: https://nettee.io/zh/courses/algorithm/basic-data-structure-counter
   problems:
   - 242
-- title: LeetCode 例题精讲 | 08 排列组合问题：回溯法的候选集合
+  title_en: 'The Anagram Problem: The Power of Basic Data Structures'
+- title: 排列组合问题：回溯法的候选集合
   link: https://nettee.io/zh/courses/algorithm/permutation-and-combination
   problems:
   - 46
   - 77
-- title: LeetCode 例题精讲 | 09 排列组合问题再探：回溯法的去重策略
+  title_en: 'Permutation and Combination: Candidate Sets in Backtracking'
+- title: 排列组合问题再探：回溯法的去重策略
   link: https://nettee.io/zh/courses/algorithm/duplicated-elements-in-backtracking
   problems:
   - 90
   - 47
-- title: 一套代码解决 Combination Sum 系列问题（LeetCode 39/40/216）
+  title_en: 'Revisiting Permutations and Combinations: Deduplication Strategies in
+    Backtracking'
+- title: 一套代码解决 Combination Sum 系列问题
   link: https://nettee.io/zh/courses/algorithm/combination-sum
   problems:
   - 39
   - 40
   - 216
-- title: LeetCode 例题精讲 | 10 二叉树直径：二叉树遍历中的全局变量
+  title_en: Solving the Combination Sum Series with One Template
+- title: 二叉树直径：二叉树遍历中的全局变量
   link: https://nettee.io/zh/courses/algorithm/global-variable-in-binary-tree
   problems:
   - 543
   - 124
   - 110
   - 563
+  title_en: 'Diameter of Binary Tree: Global Variables in Binary Tree Traversal'
 - title: 二叉树问题太复杂？「三步走」方法解决它！
   link: https://nettee.io/zh/courses/algorithm/binary-tree-comprehensive
   problems:
   - 1372
   - 1373
-- title: LeetCode 例题精讲 | 11 二叉树转化为链表：二叉树遍历中的相邻结点
+  title_en: Binary Tree Problems Too Complex? A Three-Step Method to Solve Them!
+- title: 二叉树转化为链表：二叉树中序遍历中的相邻结点
   link: https://nettee.io/zh/courses/algorithm/iterative-traversal-of-binary-tree
   problems:
   - 98
   - 426
-- title: LeetCode 例题精讲 | 12 岛屿问题：网格结构中的 DFS
+  title_en: 'Converting a Binary Tree to a Linked List: Operating on Adjacent Nodes
+    in Binary Tree Inorder Traversal'
+- title: 岛屿问题：网格结构中的 DFS
   link: https://nettee.io/zh/courses/algorithm/dfs-for-grid
   problems:
   - 463
   - 695
   - 827
-- title: LeetCode 例题精讲 | 13 BFS 的使用场景：层序遍历、最短路径问题
+  title_en: 'Island Problems: DFS on Grid Structures'
+- title: BFS 的使用场景：层序遍历、最短路径问题
   link: https://nettee.io/zh/courses/algorithm/bfs-for-level-order-traversal-and-shortest-path
   problems:
   - 102
   - 1162
-- title: LeetCode 例题精讲 | 14 打家劫舍问题：动态规划的解题四步骤
+  title_en: 'Use Cases for BFS: Level-Order Traversal and Shortest Path Problems'
+- title: 打家劫舍：动态规划的解题四步骤
   link: https://nettee.io/zh/courses/algorithm/dynamic-programming-basics
   problems:
   - 198
-- title: LeetCode 例题精讲 | 15 最长公共子序列：二维动态规划的解法
+  title_en: 'House Robber: Four Steps to Solving Dynamic Programming Problems'
+- title: 最长公共子序列：二维动态规划的解法
   link: https://nettee.io/zh/courses/algorithm/two-dimensional-dynamic-programming
   problems:
   - 1143
+  title_en: 'Longest Common Subsequence: Solving with Two-Dimensional Dynamic Programming'
 - title: 经典动态规划：编辑距离
   link: https://nettee.io/zh/courses/algorithm/edit-distance
   problems:
   - 72
-- title: LeetCode 例题精讲 | 16 最大子数组和：子数组类问题的动态规划技巧
+  title_en: 'Classic Dynamic Programming: Edit Distance'
+- title: 最大子数组和：子数组类问题的动态规划技巧
   link: https://nettee.io/zh/courses/algorithm/dynamic-programming-for-subarray
   problems:
   - 53
   - 718
-- title: LeetCode 例题精讲 | 17 动态规划如何拆分子问题，简化思路
+  title_en: 'Maximum Subarray Sum: Dynamic Programming Techniques for Subarray Problems'
+- title: 动态规划如何拆分子问题，简化思路
   link: https://nettee.io/zh/courses/algorithm/dynamic-programming-define-subproblem
   problems:
   - 978
+  title_en: Splitting Subproblems in Dynamic Programming to Simplify Your Approach
 - title: 一文教你股票买卖问题实用而装逼的解法
   link: https://nettee.io/zh/courses/algorithm/buy-and-sell-stock
   problems:
   - 123
+  title_en: A Practical yet Elegant Approach to Stock Trading Problems
 - title: 经典动态规划：「换硬币」系列三道问题详解
   link: https://nettee.io/zh/courses/algorithm/coin-change-series
   problems:
   - 322
   - 377
   - 518
-- title: LeetCode 例题精讲 | 18 前缀和：空间换时间的技巧
+  title_en: 'Classic Dynamic Programming: Three Coin Change Problems Explained'
+- title: 前缀和：空间换时间的技巧
   link: https://nettee.io/zh/courses/algorithm/prefix-sum
   problems:
   - 303
   - 724
   - 560
+  title_en: 'Prefix Sum: A Space-for-Time Technique'
 - title: 时间复杂度分析快速入门：题型分类法
   link: https://mp.weixin.qq.com/s/Rzdz_dwS_4eOoX7XkFIALQ
-  problems:
+  problems: null

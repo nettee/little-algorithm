@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import re
-import tomllib
 
 import yaml
 
@@ -52,18 +51,13 @@ class GeneratorContext:
     def template_dir(self) -> Path:
         return self.root / "src" / "little_algorithm" / "templates"
 
-    @property
-    def rena_blog_algorithm_course_dir(self) -> Path:
-        return (
-            self.root.parent / "rena-blog" / "src" / "content" / "courses" / "algorithm"
-        )
-
 
 def load_articles(path: Path) -> list[ArticleInfo]:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     return [
         ArticleInfo(
             title=item["title"],
+            title_en=item.get("title_en"),
             link=item.get("link"),
             problems=[str(problem) for problem in item.get("problems") or []],
         )
@@ -133,63 +127,11 @@ def render_solution_md(solutions: list[SolutionFile]) -> str:
     return f"Java({parts})"
 
 
-def build_course_slug_map(course_dir: Path) -> dict[str, Path]:
-    slug_map: dict[str, Path] = {}
-    for meta_path in course_dir.glob("*/meta.toml"):
-        meta = tomllib.loads(meta_path.read_text(encoding="utf-8"))
-        slug = meta.get("slug")
-        if isinstance(slug, str):
-            slug_map[slug] = meta_path.parent
-    return slug_map
-
-
-def load_markdown_frontmatter_title(path: Path) -> str | None:
-    content = path.read_text(encoding="utf-8")
-    if not content.startswith("---\n"):
-        return None
-    _, _, rest = content.partition("---\n")
-    frontmatter_text, separator, _ = rest.partition("\n---\n")
-    if not separator:
-        return None
-    frontmatter = yaml.safe_load(frontmatter_text)
-    title = frontmatter.get("title") if isinstance(frontmatter, dict) else None
-    if isinstance(title, str):
-        return title
-    return None
-
-
-def resolve_article_title(
-    article: ArticleInfo,
-    article_locale: str,
-    slug_map: dict[str, Path],
-) -> str:
-    slug = article.slug()
-    if not slug:
-        return article.title
-
-    chapter_dir = slug_map.get(slug)
-    if chapter_dir is None:
-        return article.title
-
-    localized_path = chapter_dir / f"{article_locale}.md"
-    fallback_path = chapter_dir / "zh.md"
-
-    for path in (localized_path, fallback_path):
-        if path.exists():
-            title = load_markdown_frontmatter_title(path)
-            if title:
-                return title
-
-    return article.title
-
-
 def build_rows(context: GeneratorContext, article_locale: str) -> list[TableRow]:
     articles = load_articles(context.articles_path)
     cache = load_problem_cache(context.problem_cache_path)
-    slug_map = build_course_slug_map(context.rena_blog_algorithm_course_dir)
     rows: list[TableRow] = []
     for article in articles:
-        article_title = resolve_article_title(article, article_locale, slug_map)
         for fid in article.problems:
             rows.append(
                 TableRow(
@@ -198,7 +140,7 @@ def build_rows(context: GeneratorContext, article_locale: str) -> list[TableRow]
                     solution_md=render_solution_md(
                         find_java_solutions(context.solutions_path, fid)
                     ),
-                    article_md=article.md_piece(article_locale, title=article_title),
+                    article_md=article.md_piece(article_locale),
                 )
             )
     rows.sort(key=lambda row: int(row.fid))

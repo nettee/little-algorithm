@@ -21,6 +21,7 @@ class ProblemMetadata:
 @dataclass(frozen=True)
 class ArticleInfo:
     title: str
+    title_en: str | None
     link: str | None
     problems: list[str]
 
@@ -44,8 +45,13 @@ class ArticleInfo:
             return None
         return match["slug"]
 
-    def md_piece(self, locale: str, title: str | None = None) -> str:
-        display_title = (title or self.title).replace("|", "\\|")
+    def localized_title(self, locale: str) -> str:
+        if locale == "en" and self.title_en:
+            return self.title_en
+        return self.title
+
+    def md_piece(self, locale: str) -> str:
+        display_title = self.localized_title(locale).replace("|", "\\|")
         link = self.localized_link(locale)
         if link:
             return f"[{display_title}]({link})"

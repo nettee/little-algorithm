@@ -15,5 +15,5 @@ This repository contains the article index and reference solutions for my "LeetC
 
 | ID | Problem | Solution | Article |
 | :-: | --- | --- | --- |
-{% for row in rows %}| [{{ row.problem.fid }}]({{ row.problem.url | replace("https://leetcode-cn.com", "https://leetcode.com") }}) | {{ row.problem.title }}<br />{{ row.problem.translated_title }} | {{ row.solution_md }} | {{ row.article_md }} |
+{% for row in rows %}| [{{ row.problem.fid }}]({{ row.problem.url | replace("https://leetcode-cn.com", "https://leetcode.com") }}) | {{ row.problem.title }} | {{ row.solution_md }} | {{ row.article_md }} |
 {% endfor %}
